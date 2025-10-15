@@ -32,8 +32,8 @@ a:active{
 }
 #title{
     margin: auto;
-    width: 50%;
-    text-align: center;
+    text-align: right;
+    padding-right: 2%;
     font-family: 'monospace bold';
     font-size: large;
     color: aquamarine;
@@ -54,7 +54,7 @@ a:active{
     width: 30px;
 }
 #about-title{
-    text-align: right;
+    text-align: left;
     font-family: 'monospace bold';
     font-size: large;
     color: #0e1013;
