@@ -6,9 +6,11 @@ html, body{
     background-color: black;
 }
 .banner {
-    width: 25%;
-    height: 5%;
+    width: 100%;
+    
+    height: auto;
     display: block;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,15 +26,6 @@ a:hover{
 a:active{
     color:chartreuse;
 }
-.navbar{
-    padding-top: 5%;
-    margin: auto;
-    width: 50%;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    color: green;
-}
 #title{
     margin: auto;
     width: 50%;
@@ -47,10 +40,11 @@ a:active{
     margin: 0;
 }
 #contactBar{
-    margin: auto;
+    position: absolute;
     text-align: center;
-    padding: 30px;
-    width: 50%;
+    margin: auto;
+    left: 30%;
+    right: 30%;
 }
 #contactImage{
     width: 30px;
@@ -66,15 +60,9 @@ a:active{
 }
 .paragraph{
     text-align: left;
+    position: relative;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
     color: aquamarine;
     padding-left: 2%;
-}
-#profile-image{
-    height: 50%;
-    width: 50%;
-}
-#list{
-    columns: 2;
 }
