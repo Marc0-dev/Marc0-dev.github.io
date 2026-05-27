@@ -7,7 +7,7 @@ var counter = 0;
 var mouse = new Image();
 mouse.src = "media/mouse-cursor-png-23335.png";
 var iType = 0;
-var txt = "Marc0-dev@" + navigator.appCodeName + ":~$ cd Projects";
+var txt = "Marc0-dev@" + navigator.platform + ":~$ cd Projects";
 var speed = 50;
 const cursor = {
     x: innerWidth/2,
