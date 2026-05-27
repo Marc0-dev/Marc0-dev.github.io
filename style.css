@@ -11,15 +11,17 @@ html, body{
 }
 .banner {
     width: 100%;
-    
+    position: relative;
+    justify-content: center;
     height: auto;
-    display: block;
-    max-width: 400px;
+    display: flex;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 a:link{
     color: green;
+    text-decoration:none
 }
 a:visited{
     color: aquamarine;
@@ -29,15 +31,6 @@ a:hover{
 }
 a:active{
     color:chartreuse;
-}
-#title{
-    margin: auto;
-    text-align: right;
-    padding-right: 2%;
-    font-family: 'monospace bold';
-    font-size: large;
-    color: aquamarine;
-    padding-bottom: 2%;
 }
 #canvas {
     position: fixed;
@@ -54,19 +47,18 @@ a:active{
     width: 30px;
 }
 #about-title{
-    text-align: left;
+    text-align: center;
     font-family: 'monospace bold';
-    font-size: large;
+    font-size: x-large;
     color: #0e1013;
     padding-bottom: 2%;
     padding-top: 3%;
-    padding-left: 3%;
 }
 #about-title span{
     background-color: #ff5f1f;
 }
 .paragraph{
-    padding-top: 5%;
+    padding-top: 3%;
     line-height: 150%;
     text-align: left;
     position: relative;
@@ -74,4 +66,26 @@ a:active{
     font-size: large;
     color: aquamarine;
     padding-left: 2%;
+}
+#expandable{
+    text-align: left;
+    font-family:monospace;
+    font-size: large;
+    color: aquamarine;
+    padding-left: 2%;
+    max-width: 50%;
+}
+#typewriterLink{
+    position: relative;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large; 
+}
+.blog-image{
+    width: 100%;
+    max-width: 10%;
+    height: 20%;
+    object-fit: scale-down;
+    display: flex;
+    justify-content: left;
 }

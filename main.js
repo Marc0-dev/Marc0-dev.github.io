@@ -3,19 +3,28 @@ const ctx = canvas.getContext("2d");
 ctx.canvas.width = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 var canvasBound = canvas.getBoundingClientRect();
+var counter = 0;
+var mouse = new Image();
+mouse.src = "media/mouse-cursor-png-23335.png";
+var iType = 0;
+var txt = "Marc0-dev@" + navigator.appCodeName + ":~$ cd Projects";
+var speed = 50;
 const cursor = {
     x: innerWidth/2,
     y:innerHeight/2,
 };
+
 addEventListener("resize", (e) => {
     ctx.canvas.width = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
     location.reload();
 });
+
 addEventListener("mousemove", (e) => {
   cursor.x = e.pageX;
   cursor.y = e.pageY;
 });
+
 addEventListener(
   "touchmove",
   (e) => {
@@ -25,15 +34,23 @@ addEventListener(
   },
   { passive: false },
 );
+
+function typeWriter() {
+  if (iType < txt.length) {
+    document.getElementById("typewriterLink").innerHTML += txt.charAt(iType);
+    iType++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
 function init(){
+    typeWriter();
     window.requestAnimationFrame(draw);
 }
-var counter = 0;
-var mouse = new Image();
-mouse.src = "media/mouse-cursor-png-23335.png";
+
 function draw(){
     ctx.globalCompositeOperation = "destination-over";
-    if(counter >= 700){
+    if(counter >= 100){
         counter = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
@@ -42,4 +59,5 @@ function draw(){
     counter++;
     window.requestAnimationFrame(draw);
 }
+
 init();
