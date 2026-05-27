@@ -9,6 +9,8 @@ mouse.src = "media/mouse-cursor-png-23335.png";
 var iType = 0;
 var txt = "Marc0-dev@" + navigator.platform + ":~$ cd Projects";
 var speed = 50;
+const TRAIL_LENGTH = 20;
+const trail = [];
 const cursor = {
     x: innerWidth/2,
     y:innerHeight/2,
@@ -48,16 +50,27 @@ function init(){
     window.requestAnimationFrame(draw);
 }
 
-function draw(){
-    ctx.globalCompositeOperation = "destination-over";
-    if(counter >= 100){
-        counter = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-    ctx.fillStyle = "aquamarine";
-    ctx.drawImage(mouse, cursor.x - canvasBound.left, cursor.y - canvasBound.top, 16, 16);
-    counter++;
-    window.requestAnimationFrame(draw);
+function draw() {
+  ctx.globalCompositeOperation = "destination-over";
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  trail.unshift({ x: cursor.x, y: cursor.y });
+  if (trail.length > TRAIL_LENGTH) {
+    trail.pop();
+  }
+  for (let i = 0; i < trail.length; i++) {
+    const opacity = 1 - i / TRAIL_LENGTH;
+    const size = 16 * opacity;
+    ctx.globalAlpha = opacity;
+    ctx.drawImage(
+      mouse,
+      trail[i].x - canvasBound.left - size / 2 + 8,
+      trail[i].y - canvasBound.top - size / 2 + 8,
+      size,
+      size
+    );
+  }
+  ctx.globalAlpha = 1;
+  window.requestAnimationFrame(draw);
 }
 
 init();
